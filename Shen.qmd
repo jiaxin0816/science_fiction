@@ -34,3 +34,17 @@ Planets <- Planets |> mutate_at(vars(4:6), ~ str_replace_all(., ",", "."))
 Planets <- Planets |> mutate_at(vars(4:6), as.numeric)
 ```
 
+## Question 4
+```{r}
+missing_count <- Planets |>
+  summarise(across(everything(), ~ sum(is.na(.))))
+columns_with_missing <- sum(colSums(is.na(Planets)) > 0)
+```
+
+
+```{r}
+Info <- data.frame(file_name='Planets',ob_number=nrow(Planets),va_number=ncol(Planets),columns_with_missing)
+Info2 <- cbind(Info, missing_count)
+knitr::kable(Info2)
+```
+
