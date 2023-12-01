@@ -99,6 +99,9 @@ climate_df_sp <- separate(climate_df,`TYPE OF CLIMATE`, into = c("climate type1"
 
 ## Question 9
 
+
+## Question 10
+
 ```{r}
 Stars <- vroom(here("data", "LIST+Stars.csv"))
 ```
@@ -112,18 +115,22 @@ Stars <- Stars |> mutate_at(vars(5:7), as.numeric)
 are_numeric4 <- sapply(Stars, is.numeric)
 ```
 
-## Question 10
+## Question 11
 ```{r}
 planets_no_star <- Planets %>%
   filter(!(star_idx %in% Stars$star_idx))
 N_star <- nrow(planets_no_star)
 ```
 
-## Question 11
+## Question 12
 ```{r}
 Stars$ temperature_class <- substr(Stars$`Stellar Class`, 1, 1)
 Stars$ temperature <- substr(Stars$`Stellar Class`, 2, 2)
 Stars$spectral_classification <- substr(Stars$`Stellar Class`, 3, 3)
 ```
 
+## Question 12
+```{r}
+
+```
 
