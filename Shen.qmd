@@ -48,3 +48,12 @@ Info2 <- cbind(Info, missing_count)
 knitr::kable(Info2)
 ```
 
+##  Question 5
+
+```{r warning=FALSE}
+ggplot(Planets, aes(x = Mass, y = RADIUS)) +
+  geom_point() +
+  labs(x = "Mass of the Planet", y = "Radius of the Planet") +
+  ggtitle("Relationship between Planet Radius and Mass")
+```
+
