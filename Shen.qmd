@@ -6,3 +6,31 @@ editor: visual
 ---
 
 ## Github link: <https://github.com/jiaxin0816/science_fiction>
+
+```{r}
+here::i_am("science_fiction.Rproj")
+library(here)
+library(vroom)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(knitr)
+library(stringr)
+theme_set(theme_bw())
+```
+
+## Data Loading
+
+```{r}
+Planets <- vroom(here("data", "LIST+PLANETS.csv"))
+```
+
+## Verify validity
+```{r}
+Planets |> count()
+Planets |> ncol()
+are_numeric <- sapply(Planets, is.numeric)
+Planets <- Planets |> mutate_at(vars(4:6), ~ str_replace_all(., ",", "."))
+Planets <- Planets |> mutate_at(vars(4:6), as.numeric)
+```
+
