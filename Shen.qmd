@@ -131,6 +131,10 @@ Stars$spectral_classification <- substr(Stars$`Stellar Class`, 3, 3)
 
 ## Question 12
 ```{r}
-
+ggplot(Stars, aes(x = temperature_class)) +
+  geom_bar(fill = "skyblue", color = "black") +
+  labs(title = "Distribution of Stars by Temperature Class", 
+       x = "Temperature Class", y = "Count") +
+  theme_minimal()
 ```
 
