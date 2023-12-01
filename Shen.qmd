@@ -129,7 +129,7 @@ Stars$ temperature <- substr(Stars$`Stellar Class`, 2, 2)
 Stars$spectral_classification <- substr(Stars$`Stellar Class`, 3, 3)
 ```
 
-## Question 12
+## Question 13
 ```{r}
 ggplot(Stars, aes(x = temperature_class)) +
   geom_bar(fill = "skyblue", color = "black") +
