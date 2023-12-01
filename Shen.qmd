@@ -80,6 +80,7 @@ terrain_df <- Planets %>%
   mutate(`terrain type` = str_split(`terrain type`, ": ")) %>%
   unnest(cols = `terrain type`) %>%
   reframe(Planet_number, `terrain type`)
+terrain_df <- separate(terrain_df,`terrain type`, into = c("terrain type1", "terrain type2", "terrain type3","terrain type4","terrain type5","terrain type6","terrain type7","terrain type8","terrain type9","terrain type10","terrain type11"), sep = ":")
 ```
 
 ```{r}
@@ -88,5 +89,7 @@ climate_df <- Planets %>%
   mutate(`TYPE OF CLIMATE` = str_split(`TYPE OF CLIMATE`, ": ")) %>%
   unnest(cols = `TYPE OF CLIMATE`) %>%
   reframe(Planet_number, `TYPE OF CLIMATE`)
+climate_df <- separate(climate_df,`TYPE OF CLIMATE`, into = c("climate type1", "climate type2", "climate type3","climate type4","climate type5","climate type6","climate type7"), sep = ":")
 ```
 
+## Question 8
