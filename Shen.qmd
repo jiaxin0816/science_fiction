@@ -93,3 +93,23 @@ climate_df <- separate(climate_df,`TYPE OF CLIMATE`, into = c("climate type1", "
 ```
 
 ## Question 8
+```{r}
+
+```
+
+## question 9
+
+```{r}
+Stars <- vroom(here("data", "LIST+Stars.csv"))
+```
+
+```{r}
+Stars |> count()
+Stars |> ncol()
+are_numeric3 <- sapply(Stars, is.numeric)
+Stars <- Stars |> mutate_at(vars(5:7), ~ str_replace_all(., ",", "."))
+Stars <- Stars |> mutate_at(vars(5:7), as.numeric)
+are_numeric4 <- sapply(Stars, is.numeric)
+```
+
+## 
