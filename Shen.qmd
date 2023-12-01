@@ -57,3 +57,36 @@ ggplot(Planets, aes(x = Mass, y = RADIUS)) +
   ggtitle("Relationship between Planet Radius and Mass")
 ```
 
+## Question 6
+
+```{r}
+max_values <- Planets %>% 
+  summarise(across(4:6, .fns = max, na.rm = TRUE))
+min_values <- Planets %>% 
+  summarise(across(4:6, .fns = min, na.rm = TRUE)) 
+
+```
+
+
+```{r}
+
+```
+
+
+## Question 7
+```{r}
+terrain_df <- Planets %>%
+  select(Planet_number, `terrain type`) %>%
+  mutate(`terrain type` = str_split(`terrain type`, ": ")) %>%
+  unnest(cols = `terrain type`) %>%
+  reframe(Planet_number, `terrain type`)
+```
+
+```{r}
+climate_df <- Planets %>%
+  select(Planet_number, `TYPE OF CLIMATE`) %>%
+  mutate(`TYPE OF CLIMATE` = str_split(`TYPE OF CLIMATE`, ": ")) %>%
+  unnest(cols = `TYPE OF CLIMATE`) %>%
+  reframe(Planet_number, `TYPE OF CLIMATE`)
+```
+
