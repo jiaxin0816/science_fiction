@@ -125,7 +125,7 @@ N_star <- nrow(planets_no_star)
 ## Question 12
 ```{r}
 Stars$ temperature_class <- substr(Stars$`Stellar Class`, 1, 1)
-Stars$ temperature <- substr(Stars$`Stellar Class`, 2, 2)
+Stars$ magnitude <- substr(Stars$`Stellar Class`, 2, 2)
 Stars$spectral_classification <- substr(Stars$`Stellar Class`, 3, 3)
 ```
 
@@ -135,6 +135,16 @@ ggplot(Stars, aes(x = temperature_class)) +
   geom_bar(fill = "skyblue", color = "black") +
   labs(title = "Distribution of Stars by Temperature Class", 
        x = "Temperature Class", y = "Count") +
+  theme_minimal()
+```
+
+## Question 14
+```{r}
+ggplot(Stars, aes(x = temperature_class, y = magnitude, color = temperature_class)) +
+  geom_point(alpha = 0.7) +
+  scale_size_continuous(range = c(1, 10)) +
+  labs(title = "Distribution of Stars by Temperature Class and Magnitude",
+       x = "Temperature Class", y = "Magnitude", size = "Density") +
   theme_minimal()
 ```
 
